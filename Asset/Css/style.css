@@ -1,0 +1,37 @@
+
+.text-rounded-bold {
+  font-size: 20px;  
+  text-align: start;
+  color: #030808;
+  margin: 0;
+  font-weight: bold;
+  justify-content: center;
+  display: flex;
+  
+}
+
+.text-rounded{
+  font-size: 14px;  
+  margin: 0;
+  justify-content: center;
+  display: flex;
+}
+
+.text-rounded-bold-start {
+  font-size: 18px;  
+  text-align: start;
+  color: #030808;
+  margin: 0;
+  font-weight: bold;
+  justify-content: start;
+  display: flex;
+  
+}
+
+.color-verde-opaco{
+  background-color: rgb(240, 250, 220);
+}
+
+.color-rojo-opaco{
+  background-color: rgb(250, 192, 190);
+}
