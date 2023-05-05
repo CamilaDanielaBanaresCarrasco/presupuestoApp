@@ -4,6 +4,7 @@ var presupuestoObj = {
   nombreDelGasto: "",
   gasto: 0,
   saldo: 0,
+  botedeBasura: " ",
   
 
 
@@ -39,6 +40,14 @@ var presupuestoObj = {
 
 };
 
+// Función para eliminar una fila de la tabla
+function eliminarFila(fila) {
+  var tabla = document.getElementById("laTabla").getElementsByTagName('tbody')[0];
+  tabla.deleteRow(fila.rowIndex);
+}
+
+
+// Función para agregar una nueva fila a la tabla con el nombre del gasto y el valor actualizado
 // Función para agregar una nueva fila a la tabla con el nombre del gasto y el valor actualizado
 function actualizarTabla(presupuestoObj) {
   // Seleccionar la tabla por su id
@@ -47,9 +56,27 @@ function actualizarTabla(presupuestoObj) {
   // Crear una fila nueva
   var fila = tabla.insertRow();
 
-  // Crear celdas para el nombre del gasto y el valor
+  // Crear celdas para el nombre del gasto, el valor y la papelera
   var gasto = fila.insertCell(0);
   var valor = fila.insertCell(1);
+  var bote = fila.insertCell(2);
+
+  // Agregar el ícono de la papelera a la celda de la papelera
+  var papelera = document.createElement('div');
+  papelera.setAttribute('class', 'text-primary me-2 btn');
+
+  var iconoPapelera = document.createElement('i');
+  iconoPapelera.setAttribute('class', 'bi bi-trash-fill');
+
+  papelera.appendChild(iconoPapelera);
+  bote.appendChild(papelera);
+
+  // Agregar un evento 'click' al ícono de la papelera para eliminar la fila correspondiente
+  papelera.addEventListener('click', function() {
+    tabla.removeChild(fila);
+   // si se elimina la fila, que me reste los valores de esta en los campos superiores PENDIENTE  
+
+  });
 
   // Asignar el nombre del gasto y el valor a las celdas
   gasto.innerHTML = presupuestoObj.nombreDelGasto;
