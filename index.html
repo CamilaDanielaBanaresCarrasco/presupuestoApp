@@ -7,31 +7,36 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="Asset/Css/style.css">
-  <title>Plataforma export</title>
+  <title>Presupuesto APP </title>
 </head>
 <body >
+
+  <button id="botonRecargar" class="btn btn-primary btn-md mt-5 ms-5">Recargar Página</button>
+
 <div class="container my-5">
 <H3 class="my-5 ">PRESUPUESTO APP</H3>
 
+<div id="contenedor"></div>
+
 <section class="row">
-<div class="border border-success rounded col-5 mx-3 border-2 color-verde-opaco" >
+<div class="border border-success rounded col-5 mx-3 border-2 color-verde-opaco col-md-5 col-12" >
   <span class="text-rounded-bold-start">Ingresa Tu Presupuesto</span>
   <input class="w-100 mb-3 m-1 color-verde-opaco" id="input-Presupuesto" type="number" min="0" required>
 
-  <button type="button" class="btn btn-success mb-2" id="btncalcular">Calcular</button>
+  <button type="button" class="btn btn-outline-success mb-2" id="btncalcular">Calcular</button>
 
 
 </div>
 
 
 
-  <div class="col-2 ">
+  <div class="col-md-2 col-4 my-5 my-md-0">
     <p class=" text-rounded">PRESUPUESTO</p><span class="text-rounded-bold " id="imprimePresupuesto">$0000</span>
   </div>
-  <div class="col-2">
+  <div class="col-md-2 col-4 my-5 my-md-0">
     <p class=" text-rounded" >GASTOS</p><span class="text-rounded-bold" id="imprimeCantidadGasto">$0000</span>
   </div>
-  <div class="col-2">
+  <div class="col-md-2 col-4 my-5 my-md-0">
     <p class=" text-rounded">SALDO</p><span class="text-rounded-bold" id="imprimeSaldo">$0000</span>
   </div>
 
@@ -39,7 +44,7 @@
 
 
 <section class="row my-5">
-  <div class="border border-danger rounded col-5 mx-3 border-2 color-rojo-opaco">
+  <div class="border border-danger rounded col-12 mx-3 border-2 color-rojo-opaco col-md-5">
     <span class="text-rounded-bold-start">Ingresa El Nombre Del Gasto</span>
     <input class="w-100 mb-3 m-1 color-rojo-opaco" id="input-NombreGasto" type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" required>
     
@@ -48,22 +53,16 @@
     
     <button type="button" class="btn btn-outline-danger mb-2" id="btnAñadirGasto">Añadir Gasto</button>
   </div>
-  
 
-
-
-
-  
-  <div class="col-6">
-    <table class="table col-5">
+  <div class="col-md-6 col-12 my-5 my-md-0">
+    <table class="table col-5" id="laTabla">
       <thead>
         <tr>
-          <th scope="col" class="w-25">GASTOS</th>
+          <th scope="col" class="w-25">GASTO</th>
           <th scope="col" class="me-2">VALOR</th>
         </tr>
       </thead>
       <tbody>
-
       </tbody>
     </table>
   </div>
