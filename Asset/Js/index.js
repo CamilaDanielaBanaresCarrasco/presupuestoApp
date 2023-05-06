@@ -42,6 +42,45 @@ var presupuestoObj = {
 
 };
 
+
+var presupuestoObj = new Proxy(presupuestoObj, {
+  get(target, prop){
+      if(prop in target){
+          return target[prop];
+      }else{
+          return `La propiedad ${prop} no existe`
+      }
+  }
+});
+
+
+presupuestoObj = new Proxy(presupuestoObj, {
+  set(target, prop, value) {
+    if (prop === "presupuesto" && value < 0) {
+      alert("El presupuesto debe ser un valor positivo");
+      location.reload();
+      return false;
+    }
+    if (prop === "gasto" && value < 0) {
+      alert("El gasto debe ser un valor positivo");
+      prop.gasto = 0;
+      var tabla = document.getElementById("laTabla").getElementsByTagName('tbody')[0];
+      tabla.deleteRow(fila.rowIndex);
+      return false;
+    }
+
+    target[prop] = value;
+    return true;
+  }
+});
+
+// Modificar el valor de alguna propiedad del objeto presupuestoObj
+presupuestoObj.presupuesto = 5000
+console.log(presupuestoObj.presupuesto);
+
+
+
+
 // Función para eliminar una fila de la tabla
 function eliminarFila(fila) {
   var tabla = document.getElementById("laTabla").getElementsByTagName('tbody')[0];
