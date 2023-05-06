@@ -11,8 +11,8 @@ var presupuestoObj = {
   calcularSaldo: function () {
     // Calcular el saldo
     this.saldo = this.presupuesto - this.gasto;
-    // 1000 = 1000 - 50
-    // 950
+    // 10000  = 10000 - 0 comienza en 0 
+     // 10000  = 10000 - x = x
 
     // Verificar si el saldo es menor que cero
     if (this.saldo < 0) {
@@ -28,9 +28,11 @@ var presupuestoObj = {
 
     // Deshabilitar los botones si el gasto es mayor o igual al saldo
     if (this.gasto >= this.presupuesto) { 
-      alert("No queda dinero disponible.");
+      alert("Se ah gastado todo el saldo disponible.");
       botonAñadirGasto.classList.add("disabled");
       botonCalcular.classList.add("disabled");
+      var tabla = document.getElementById("laTabla").getElementsByTagName('tbody')[0];
+      tabla.deleteRow(fila.rowIndex);
     } else {
       botonAñadirGasto.classList.remove("disabled"); 
     }
@@ -57,9 +59,13 @@ function actualizarTabla(presupuestoObj) {
   var fila = tabla.insertRow();
 
   // Crear celdas para el nombre del gasto, el valor y la papelera
+
+  
   var gasto = fila.insertCell(0);
   var valor = fila.insertCell(1);
   var bote = fila.insertCell(2);
+
+
 
   // Agregar el ícono de la papelera a la celda de la papelera
   var papelera = document.createElement('div');
@@ -74,7 +80,18 @@ function actualizarTabla(presupuestoObj) {
   // Agregar un evento 'click' al ícono de la papelera para eliminar la fila correspondiente
   papelera.addEventListener('click', function() {
     tabla.removeChild(fila);
+  var inputCantidadGasto = document.getElementById("input-CantidadGasto").value;
+
    // si se elimina la fila, que me reste los valores de esta en los campos superiores PENDIENTE  
+   gastoParseado = parseInt(presupuestoObj.gasto)
+   inputCantidadGastoParseado = parseInt(inputCantidadGasto)
+   saldoParseado = parseInt(presupuestoObj.saldo)
+   presupuestoObj.gasto =  gastoParseado - inputCantidadGastoParseado;
+   presupuestoObj.saldo = saldoParseado + inputCantidadGastoParseado;
+   document.getElementById("imprimeSaldo").innerHTML = "$" + presupuestoObj.saldo;
+
+   console.log("aqui va el valor luego de la resta " + presupuestoObj.gasto )
+   document.getElementById("imprimeCantidadGasto").innerHTML = "$" + presupuestoObj.gasto;
 
   });
 
@@ -127,10 +144,10 @@ botonAñadirGasto.addEventListener('click', function () {
   // Verificar que el gasto no supere el saldo
 if (parseInt(inputCantidadGasto) > (presupuestoObj.saldo)) {
   inputCantidadGasto = presupuestoObj.saldo - presupuestoObj.gasto;
-  alert("Su saldo seria " + inputCantidadGasto);
+  alert("Su gasto es mayor al saldo disponible");
   botonAñadirGasto.classList.add("disabled");
   botonCalcular.classList.add("disabled");
-  alert("El gasto no puede ser mayor que el saldo disponible.");
+  presupuestoObj.saldo = 0;
   }
   
   // Asignar el valor del inputNombreGasto a presupuestoObj.nombreDelGasto
