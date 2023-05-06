@@ -6,7 +6,7 @@ var presupuestoObj = {
   saldo: 0,
   botedeBasura: " ",
   
-
+//aqui
 
   calcularSaldo: function () {
     // Calcular el saldo
