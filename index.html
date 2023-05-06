@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="Asset/Css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <title>Presupuesto APP </title>
@@ -52,8 +53,10 @@
     <span class="text-rounded-bold-start">Ingresa la Cantidad del Gasto</span>
     <input class="w-100 mb-3 m-1 color-rojo-opaco" id="input-CantidadGasto" type="number" min="0" required>
     
-    <button type="button" class="btn btn-outline-danger mb-2" id="btnAñadirGasto">Añadir Gasto</button><div class="alert alert-warning" id="alertaAnadirGastos" role="alert">Ingrese un presupuesto para poder controlar sus gastos</div>
-  </div>
+    <button type="button" class="btn btn-outline-danger mb-2" id="btnAñadirGasto">Añadir Gasto</button>
+    <div class="alert alert-warning border" id="alertaAnadirGastos" role="alert">
+        <i class="fas fa-exclamation-circle"></i> Ingrese un presupuesto para poder controlar sus gastos
+    </div>  </div>
 
   <div class="col-md-6 col-12 my-5 my-md-0">
     <table class="table col-5" id="laTabla">
