@@ -213,3 +213,26 @@ if (parseInt(inputCantidadGasto) > (presupuestoObj.saldo)) {
 botonRecargar.addEventListener("click", function() {
   location.reload();
 });
+
+
+const inputPresupuesto = document.getElementById('input-Presupuesto');
+const btnAñadirGasto = document.getElementById('btnAñadirGasto');
+const alertaAnadirGastos = document.getElementById('alertaAnadirGastos');
+
+inputPresupuesto.addEventListener('input', function() {
+  if (inputPresupuesto.value === '' || inputPresupuesto.value === '0') {
+    btnAñadirGasto.disabled = true;
+    alertaAnadirGastos.style.display = 'block';
+  } else {
+    btnAñadirGasto.disabled = false;
+    alertaAnadirGastos.style.display = 'none';
+  }
+});
+
+if (inputPresupuesto.value === '' || inputPresupuesto.value === '0') {
+  btnAñadirGasto.disabled = true;
+  alertaAnadirGastos.style.display = 'block';
+} else {
+  btnAñadirGasto.disabled = false;
+  alertaAnadirGastos.style.display = 'none';
+}
